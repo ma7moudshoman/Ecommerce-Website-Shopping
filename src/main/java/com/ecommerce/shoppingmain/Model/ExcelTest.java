@@ -16,7 +16,7 @@ public class ExcelTest {
     private long id;
     private  String Firstname;
     private  String salary;
-    private String filename;
+    private String fileType;
     @Transient
     private MultipartFile file;
 }
