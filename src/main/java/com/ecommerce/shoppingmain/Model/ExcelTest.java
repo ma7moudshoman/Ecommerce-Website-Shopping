@@ -14,7 +14,7 @@ public class ExcelTest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private  String Firstname;
+    private  String FirstName;
     private  String salary;
     private String fileType;
     @Transient

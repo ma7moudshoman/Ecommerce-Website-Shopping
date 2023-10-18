@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
+</head>
+
+    <div th:replace="fragments :: head" ></div>
+
+<body>
+
+    <div th:replace="fragments :: sidebar" ></div>
+
+
+
+<div class="container">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Shalash Shop</a>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link font-weight-bold" href="/addProduct">Add Product</a></li>
+                    <li class="nav-item"><a  class="nav-link font-weight-bold" href="/products">List Products</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div>
+        <div class="container">
+            <div>
+                <form class="forms-sample" th:action="@{/GetCustomer}" th:object="${DateRange}" method="post">
+                    <div class="form-group"><label for="startDate">Start date : </label>
+                        <div class="col-10"><input class="form-control" type="date"  id="startDate"
+                                                   th:field="*{startDate}"/></div>
+                    </div>
+                    <div class="form-group"><label for="endDate">End date : </label>
+                        <div class="col-10"><input class="form-control" type="date"  id="endDate"
+                                                   th:field="*{endDate}"/></div>
+                    </div>
+                    <button type="submit" class="btn btn-success mr-2">submit</button>
+                </form>
+            </div>
+            <br>
+
+            <table  class="table table-bordered table-striped" id="dataTable" >
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">SN</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">UpDate</th>
+                    <th scope="col">Delete</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"/>       <!-- or      <th [[*{product.id}]]> -->
+                    <td th:text="${product.fullName}"/>
+                    <td th:text="${product.age}"/>
+                    <td th:text="${product.date}"/>
+                    <td th:text="${product.gender}"/>
+                    <td th:text="${product.name}"/>
+                    <td th:text="${product.price}"/>
+                    <td th:text="${product.description}"/>
+
+                    <td><a href="" th:href="@{/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
+                    <td><a href="" th:href="@{/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" ></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js" ></script>
+
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable();
+    });
+</script>
+
+
+</body>
+</html>

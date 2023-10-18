@@ -13,9 +13,7 @@ public class ProductService {
 
     @Autowired
     private ProductRepo productRepo;
-public ProductService(ProductRepo productRepo){
-    this.productRepo=productRepo;
-}
+
 
 public List<Product>FindAllProduct(){
     return productRepo.findAll();

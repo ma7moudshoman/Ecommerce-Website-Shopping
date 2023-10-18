@@ -12,7 +12,7 @@ import java.util.List;
 public interface ProductRepo extends JpaRepository<Product,Long> {
 
     @Query(
-            value = "SELECT * FROM Product WHERE Product.date BETWEEN :start_date AND end_date ",
+            value = "SELECT * FROM product WHERE Product.date BETWEEN :start_date AND :end_date ",
             nativeQuery = true)
     public List<Product>getCustomerByDate(@Param("start_date")String startDate, @Param("end_date")String endDate);
 

@@ -15,7 +15,7 @@ public class ProductDTO {
     private long price;
     private long age;
     private LocalDate Date;
-    private  String fullName;
+    private  String FullName;
     private  String startDate;
     private  String endDate;
     private  String name;
