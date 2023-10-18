@@ -17,6 +17,7 @@ public class ProductDTO {
     private LocalDate Date;
     private  String FullName;
     private  String startDate;
+    private String gender;
     private  String endDate;
     private  String name;
     private  String description;

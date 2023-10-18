@@ -63,7 +63,7 @@ public class ExcelService {
             Row row = rows.next();
             ExcelTest test = new ExcelTest();
             if (row.getCell(0).getCellType() == Cell.CELL_TYPE_STRING) {
-                test.setFirstname(row.getCell(0).getStringCellValue());
+                test.setFirstName(row.getCell(0).getStringCellValue());
             }
             if (row.getCell(1).getCellType() == Cell.CELL_TYPE_NUMERIC) {
                 String salary = NumberToTextConverter.toText(row.getCell(1).getNumericCellValue());

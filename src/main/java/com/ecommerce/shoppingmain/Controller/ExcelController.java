@@ -27,7 +27,7 @@ public class ExcelController {
 
 
     //  GET http://localhost:5050/showExcel
-    @GetMapping("/showExcel")
+    @PostMapping("/showExcel")
     public String show(Model model) {
         model.addAttribute("excel", new ExcelTest());
         model.addAttribute("Excels", excelService.findAllExcelTest());
@@ -54,14 +54,14 @@ public class ExcelController {
         return "index";
     }
 
-
+    //  Post http://localhost:5050/import
     @PostMapping("/import")
     public String readExcel(@RequestParam("file") MultipartFile file) throws IOException {
 
         List<ExcelTest> temp=new ArrayList<ExcelTest>();
         XSSFWorkbook workbook=new XSSFWorkbook(file.getInputStream());
         XSSFSheet sheet=workbook.getSheetAt(0);
-        for (int i=1;i<sheet.getPhysicalNumberOfRows() ;i++){
+        for (int i=1;i<sheet.getPhysicalNumberOfRows() ; i++)   {
 
             ExcelTest test=new ExcelTest();
             XSSFRow row=sheet.getRow(i);

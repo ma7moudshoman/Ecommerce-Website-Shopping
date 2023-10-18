@@ -21,7 +21,7 @@ public List<Product>FindAllProduct(){
 public Optional<Product> FindProduct(long id){
     return productRepo.findById(id);
 }
-public Product addproduct(Product product){
+public Product addProduct(Product product){
     return productRepo.save(product);
 }
 public void deleteProductById(long id){
